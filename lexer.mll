@@ -12,6 +12,7 @@ rule token = parse
 |   ['#']      { IMMEDIATE }
 |   ['0'-'9']* as num { INT(int_of_string num) }
 |   "R"        { REG }
+|   "//"       { COMMENT }
 |   "memloc"   { MEMVAL }
 |   "regval"   { REGVAL }
 |   "loc"      { LOCVAL }
@@ -92,4 +93,4 @@ rule token = parse
 |   "end"      { END }
 |   "END"      { END }
 |   ['a'-'z''0'-'9']* as lxm { LABEL(lxm) }
-|   eof        { raise Eof }
+|   eof        { EOF }

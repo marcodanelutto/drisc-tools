@@ -1,4 +1,0 @@
-regval 	1 2
-regval	2 4
-	add R1,R2,R3
-	end

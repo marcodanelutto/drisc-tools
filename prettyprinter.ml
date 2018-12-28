@@ -126,11 +126,14 @@ let pp_program p = (pp_prog 1 p);;
 let compare (x,y) (a,b) = if(x<a) then (-1) else if(x=a) then 0 else 1;;
 
 (** dump memory **)
-let dump_mem m = 
-  printf "Memory dump (data)\n" ;
-  List.hd (List.map (fun (l,v) -> Printf.printf "Mem[%d]=%d\t" l v)
-    (List.sort (compare) (m)));
-  printf "\n" ;;
+let dump_mem m =
+  match m with
+    [] -> ()
+  | _ ->
+     printf "Memory dump (data)\n" ;
+     List.hd (List.map (fun (l,v) -> Printf.printf "Mem[%d]=%d\t" l v)
+                (List.sort (compare) (m)));
+     printf "\n" ;;
 
 (** dump registers, the compact way **)
 let dump_areg x = printf "%5d " !x;;

@@ -1,0 +1,9 @@
+memloc	1024	2000
+memloc  2000    123
+memloc  2001	2004
+memloc  2002    456
+memloc  2003    0
+memloc  2004    345
+memloc  2005    2002
+regval  10 	1024
+regval  11      456

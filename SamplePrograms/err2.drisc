@@ -1,6 +1,0 @@
-regval	1 10
-regval	2 10
-loc 	1024
-	add R1,R2,R3
-	adde R1,#1,R4
-	end

@@ -1,0 +1,5 @@
+memloc  2000 123
+regval  10 1024
+regval  11 456
+inizio:	add R1, R2, R3
+	end

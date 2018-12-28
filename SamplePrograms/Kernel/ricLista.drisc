@@ -9,7 +9,7 @@ regval  10 	1024
 regval  11      456
 start   8192
 loc	8192
-	load  R10,R0,R1
+	load  R10,R0,R1         
 loop:   if=0  R1,nontrovato
         loadi R1,#0,R12
         if=   R12,R11,trovato
