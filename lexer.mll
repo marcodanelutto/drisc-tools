@@ -74,6 +74,7 @@ rule token = parse
 |   "if<"      { IFL }
 |   "IF<"      { IFL }
 |   "if<="     { IFLE }
+|   "IF<="     { IFLE }
 |   "if>="     { IFGE }
 |   "IF>="     { IFGE }
 |   "if<0"     { IFL0 }
@@ -84,10 +85,10 @@ rule token = parse
 |   "IF>0"     { IFG0 }
 |   "clear"    { CLEAR }
 |   "CLEAR"    { CLEAR }
-|   "decr"     { DECR }
-|   "DECR"     { DECR }
-|   "incr"     { INCR }
-|   "INCR"     { INCR }
+|   "dec"     { DECR }
+|   "DEC"     { DECR }
+|   "inc"     { INCR }
+|   "INC"     { INCR }
 |   "move"     { MOV }
 |   "MOVE"     { MOV }
 |   "mov"      { MOV }

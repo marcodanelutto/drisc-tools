@@ -8,6 +8,6 @@ loc 	100
 loop:   LOAD R10, R1, R3
 	IF>= R3,R2,cont
 	MOV R3, R2
-cont:	INCR R1
+cont:	INC  R0
 	IF< R1, R11, loop
 	END
