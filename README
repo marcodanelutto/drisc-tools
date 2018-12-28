@@ -1,0 +1,20 @@
+Drisc tools
+
+INSTALL
+
+Uncompress the archive in a directory then just type 
+
+	make
+
+(you need a working copy of Ocaml!)
+
+USE
+
+	parse xxx
+	=> parses the assembler program in file xxx 
+
+	drisc xxx [ssss]
+	=> parses the assembler program in file xxx and executes ssss
+	   instructions, dumping state (pc, mem, reg) after the 
+	   execution of each Drisc instruction. In case ssss is omitted
+	   1000 steps are performed (max)
