@@ -1,0 +1,29 @@
+data	0	1 2 2 1
+data	10	3 2 1 0
+data  	20	0 0 0 0
+regval  10	0
+regval	11	10
+regval	12 	20
+regval	13 	2
+	CLEAR R1
+loopi:	CLEAR R2
+loopj:	CLEAR R3
+	CLEAR R5
+loopk:	MUL R13, R1, R6
+	ADD R6, R3, R7
+	LOAD R10, R7, R8
+	MUL R3, R13, R9
+	ADD R9, R2, R20
+	LOAD R11, R20, R21
+	MUL R21, R8, R22
+	ADD R22, R5, R5
+	INCR R3
+	IF< R3,R13,loopk
+	MUL R1, R13, R30
+	ADD R30, R2, R31
+	STORE R12, R31, R5
+	INCR R2
+	IF< R2,R13,loopj
+	INCR R1
+	IF< R1,R13,loopi
+	END

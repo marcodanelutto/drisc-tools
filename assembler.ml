@@ -10,9 +10,10 @@ let rec reloc pgm pc =
 |    i::ri ->
        (match i with  
          Instr(Locval newpc) -> (reloc ri newpc)
-       | Instr(Memloc _ ) -> (reloc ri pc)
-       | Instr(Regval _ ) -> (reloc ri pc)
-       | Instr(Start _  ) -> (reloc ri pc) 
+       | Instr(Memloc _ )    -> (reloc ri pc)
+       | Instr(Data _)       -> (reloc ri pc)
+       | Instr(Regval _ )    -> (reloc ri pc)
+       | Instr(Start _  )    -> (reloc ri pc) 
        | Instr ii -> (RelI (NoLab, ii, pc))::(reloc ri (pc+1))
        | LabInstr (ll,ii) -> (RelI (ll,ii,pc))::(reloc ri (pc+1)));;
 
