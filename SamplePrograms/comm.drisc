@@ -1,0 +1,25 @@
+memloc	1024	3 	// zona di memoria per il primo vettore
+memloc	1025	2
+memloc  1026	1
+memloc  2048	4	// zona di memoria per il secondo vettore
+memloc  2049	5
+memloc  2050    6
+memloc  4096	0	// zona di memoria per i risultati
+memloc  4097	0
+memloc  4098	0
+// inizializzazione dei registri
+regval  1	1024	// RbaseA
+regval  2	2048	// RbaseB
+regval  3 	4096
+regval  4       3	// RN
+start   1024		// il programma parte dalla locazione 1024
+loc     1024		// le istruzioni che seguono vanno in mem all'ind 1024
+	add R0,R0,R9	// proc 
+	clear R10	// GOTO Rret
+loop:   load R1,R9,R20	// LOAD RbaseA, Ri, Rtemp
+	load R2,R9,R30	// LOAD RbaseB, Ri, Rtemp2
+	mul  R20,R30,R20	// MUL Rtemp, Rtemp1, Rtemp
+        add  R20,R10,R10	// ADD Rtemp, Rres, Rres
+        incr R9		// INCR Ri
+        if< R9,R4,loop	// IF< Ri, RN, loop
+        end		// else END

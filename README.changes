@@ -1,0 +1,16 @@
+prima cosa modificato il lexer
+	lexer.mll
+
+	per aggiungere i token necessari
+
+poi parser.mly
+	aggiunta nei %token
+	e aggiunta della regola di parsing della nuova istruzione
+
+aggiungere inteprete in
+	interp.ml
+
+
+aggiustare 
+	util.ml
+	prettyprinter.ml

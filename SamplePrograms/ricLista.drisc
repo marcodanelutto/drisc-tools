@@ -1,0 +1,20 @@
+memloc	1024	2000
+memloc  2000    123
+memloc  2001	2004
+memloc  2002    456
+memloc  2003    0
+memloc  2004    345
+memloc  2005    2002
+regval  10 	1024
+regval  11      456
+	load  R10,R0,R1
+loop:   if=0  R1,nontrovato
+        loadi R1,#0,R12
+        if=   R12,R11,trovato
+        loadi R1,#1,R1
+        goto loop
+trovato: add R0,R10,R2
+	end
+nontrovato: add R0,R0,R2
+	end
+        

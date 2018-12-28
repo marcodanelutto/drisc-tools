@@ -1,0 +1,18 @@
+regval	10 1024
+regval  1  5
+regval  2  9
+memloc  100 123
+memloc  101 124
+memloc  102 121
+start   2048
+loc	1024
+	decr R1
+        incr R2
+	add R1,R2,R3
+        goto R4
+loc 	2048
+	if<0 R1,fine
+        call R10,R4
+fine: 	incr R1
+	if<0 R1, fine
+        end

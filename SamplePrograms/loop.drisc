@@ -1,0 +1,19 @@
+regval  2 10
+regval  3 20 
+regval  4 30
+regval  5 2
+memloc  10 1 
+memloc  11 2
+memloc  20 3
+memloc  21 4
+memloc  30 0
+memloc  31 0
+loc 	1024
+	clear R1
+loop: 	ld R2,R1,R10
+	ld R3,R1,R11
+        add R10, R11, R10
+        st R4, R1, R10
+        INCR R1
+        if< R1,R5,loop
+        end

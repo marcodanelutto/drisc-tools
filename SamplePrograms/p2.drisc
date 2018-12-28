@@ -1,0 +1,4 @@
+memloc	1000 123
+regval	2 1000
+	ld R2,R0,R3
+	end

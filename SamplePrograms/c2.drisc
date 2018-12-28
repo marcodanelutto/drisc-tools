@@ -1,0 +1,32 @@
+memloc	1024	4
+memloc	1025	19
+memloc 	1026	12
+memloc	1027	7
+memloc 	1028	16
+memloc 	1029	21
+memloc 	1030	32
+memloc	1031	18
+regval  10	1024
+regval 	11	8
+regval  33	3
+regval  17	7
+start	0
+loc 	0
+	clear R1
+loopi:	addi R1, #1, R2
+loopj: 	load R10, R1, R3
+	mul R3, R33, R4
+	and R4, R17, R4
+	load R10, R2, R5
+	muli R5, #3, R6
+	modi R6, #8, R6
+	if>= R6, R4, cont
+	store R10, R1, R5
+	store R10, R2, R3
+cont:	addi R2, #1, R2
+	if< R2, R11, loopj
+	addi R1, #1, R1
+	subi R11, #1, R12
+	if< R1, R12, loopi
+	end
+
