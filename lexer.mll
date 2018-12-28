@@ -11,6 +11,7 @@ rule token = parse
 |   [',']      { COMMA }
 |   ['#']      { IMMEDIATE }
 |   ['0'-'9']* as num { INT(int_of_string num) }
+|   "R"        { REG }
 |   "memloc"   { MEMVAL }
 |   "regval"   { REGVAL }
 |   "loc"      { LOCVAL }
@@ -90,6 +91,5 @@ rule token = parse
 |   "MOV"      { MOV }
 |   "end"      { END }
 |   "END"      { END }
-|   "R"        { REG }
 |   ['a'-'z''0'-'9']* as lxm { LABEL(lxm) }
 |   eof        { raise Eof }

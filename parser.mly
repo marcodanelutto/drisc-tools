@@ -40,8 +40,9 @@ main:
 ;
 
 program: 
-     END    { [Instr(End)] }
-  |  anyinstr program { $1::$2 }
+     END                   { [Instr(End)] }
+  |  LABEL COLON END EOL   { [LabInstr(LabLab($1),End)] }
+  |  anyinstr program      { $1::$2 }
 ;
 
 anyinstr: 
@@ -91,7 +92,7 @@ instr:
 ;
 
 reg: 
-     REG INT   { Reg($2) } 
+    REG INT   { Reg($2) }
 ; 
 
 imm: 

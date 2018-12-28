@@ -23,3 +23,6 @@ tar:
 
 rsync: 
 	rsync -avz * marcod@backus.di.unipi.it:Drisc/
+
+TESTS = p1.drisc p2.drisc p3.drisc p4.drisc
+
