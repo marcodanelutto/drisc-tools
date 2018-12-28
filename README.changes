@@ -1,16 +1,14 @@
-prima cosa modificato il lexer
-	lexer.mll
+# Aggiungere una istruzione
 
-	per aggiungere i token necessari
+Per aggiungere un'istruzione che non sia ancora stata implementata occorre fare un certo numero di passi:
+- modificare il lexer (file `lexer.mll`) per aggiungere i token necessari
+- modificare il parser (file `parser.mly`
+	* aggiunta nei %token
+	* aggiunta della regola di parsing della nuova istruzione
 
-poi parser.mly
-	aggiunta nei %token
-	e aggiunta della regola di parsing della nuova istruzione
-
-aggiungere inteprete in
-	interp.ml
+- aggiungere il codice dell'inteprete di quella istruzione (file `interp.ml`)
 
 
-aggiustare 
-	util.ml
-	prettyprinter.ml
+- aggiungere i casi opportuni nei patternmatchers dei file 
+	* `util.ml` 
+	*`prettyprinter.ml` 
