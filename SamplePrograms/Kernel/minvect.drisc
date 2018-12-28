@@ -1,0 +1,13 @@
+data	1024 12 32 43 13 11 23 35 26 18 17 21 32 33 34 35 36
+regval  10 1024
+regval  11 8
+start	100
+loc 	100
+	LOAD R10, R0, R2
+	ADDI R0, #1, R1
+loop:   LOAD R10, R1, R3
+	IF>= R3,R2,cont
+	MOV R3, R2
+cont:	INCR R1
+	IF< R1, R11, loop
+	END
