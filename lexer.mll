@@ -10,7 +10,7 @@ rule token = parse
 |   [':']      { COLON }
 |   [',']      { COMMA }
 |   ['#']      { IMMEDIATE }
-|   ['0'-'9']* as num { INT(int_of_string num) }
+|   ['-']?['0'-'9']* as num { INT(int_of_string num) }
 |   "R"        { REG }
 |   "//"       { COMMENT }
 |   "memloc"   { MEMVAL }
