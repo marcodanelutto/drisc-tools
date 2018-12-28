@@ -14,6 +14,7 @@ rule token = parse
 |   "R"        { REG }
 |   "//"       { COMMENT }
 |   "memloc"   { MEMVAL }
+|   "data"     { DATA }
 |   "regval"   { REGVAL }
 |   "loc"      { LOCVAL }
 |   "start"    { START }

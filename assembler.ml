@@ -16,13 +16,19 @@ let rec reloc pgm pc =
        | Instr ii -> (RelI (NoLab, ii, pc))::(reloc ri (pc+1))
        | LabInstr (ll,ii) -> (RelI (ll,ii,pc))::(reloc ri (pc+1)));;
 
+(** aux fun to add values to mem **)
+let rec addata addr lv mem =
+  match lv with
+    [] -> mem
+  | v::rv -> (addata (addr+1) rv ((addr,v)::mem));;
 
 (** function scanning initial memory assignments:
     returns an associative list  *)
 let rec msetup pgm mem = 
   match pgm with 
     [] -> mem
-| Instr(Memloc (l,v))::rpgm -> msetup rpgm ((l,v)::mem)
+  | Instr(Memloc (l,v))::rpgm -> msetup rpgm ((l,v)::mem)
+  | Instr(Data (addr, lv))::rpgm -> msetup rpgm (addata addr lv mem)
 | _::rpgm -> msetup rpgm mem
 ;;
 
@@ -32,8 +38,8 @@ let rec msetup pgm mem =
 let rec rfsetup pgm regs = 
   match pgm with 
     [] -> ()
-| Instr(Regval (l,v))::rpgm -> (regs.(l):=v; rfsetup rpgm regs)
-| _::rpgm -> (rfsetup rpgm regs)
+  | Instr(Regval (l,v))::rpgm -> (regs.(l):=v; rfsetup rpgm regs)
+  | _::rpgm -> (rfsetup rpgm regs)
 ;;
 
 let rec rsetup pgm reg = 

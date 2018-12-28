@@ -87,6 +87,7 @@ let pp_asm = function
 | Error -> printf "Syntax error on this (hidden) line "
 | End -> printf "END "
 | Memloc(l,v) -> printf "Mem[%d]=%d" l v;
+| Data(a,l)   -> printf "Mem[%d]= " a; List.hd (List.map (Printf.printf "%d ") l);
 | Regval(r,v) -> printf "R[%d]=%d" r v;
 | Locval(v)   -> printf "%d:\t" v
 | Start(v)    -> printf "START at %d" v

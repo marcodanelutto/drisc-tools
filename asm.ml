@@ -61,6 +61,7 @@ type asm =
 |  Memloc of int*int
 |  Regval of int*int
 |  Locval of int
+|  Data of int * ((int) list)
 |  Start  of int
 |  Error
 |  End

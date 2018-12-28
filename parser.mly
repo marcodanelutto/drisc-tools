@@ -13,7 +13,7 @@ let print_error () =
 %token REG
 %token COLON
 %token COMMA COMMENT
-%token MEMVAL REGVAL LOCVAL START DEFINE
+%token MEMVAL REGVAL LOCVAL DATA START DEFINE
 %token IMMEDIATE
 %token EOL EOF
 %token ADD ADDI AND ANDI SUB SUBI MUL MULI DIV DIVI MOD MODI
@@ -51,10 +51,16 @@ anyinstr:
   |  MEMVAL INT INT EOL      { Instr(Memloc($2,$3))     } 
   |  REGVAL INT INT EOL      { Instr(Regval($2,$3))     } 
   |  LOCVAL INT EOL          { Instr(Locval($2))        }
+  |  DATA INT intlist EOL    { Instr(Data($2,$3))       }
   |  START INT EOL           { Instr(Start($2))         }
   |  error EOL               { Instr(Error)             }
 ;
 
+intlist:
+     INT                     { [$1] }
+  |  INT intlist             { $1::$2 }
+;
+  
 instr: 
      SUB reg COMMA reg COMMA reg    { Sub($2, $4, $6) }
 |    SUBI reg COMMA imm COMMA reg   { Subi($2, $4, $6) } 

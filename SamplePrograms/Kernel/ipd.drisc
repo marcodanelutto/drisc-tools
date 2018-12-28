@@ -1,0 +1,18 @@
+data    1024    3 2 1
+data    2048    4 5 6
+data    4096    0 0 0 
+regval  1	1024
+regval  2	2048
+regval  3 	4096
+regval  4       3
+start   1024
+loc     1024
+	add R0,R0,R9
+	clear R10
+loop:   load R1,R9,R20
+	load R2,R9,R30
+	mul  R20,R30,R20
+        add  R20,R10,R10
+        incr R9
+        if< R9,R4,loop
+        end
