@@ -75,6 +75,7 @@ rule token = parse
 |   "IF<"      { IFL }
 |   "if<="     { IFLE }
 |   "if>="     { IFGE }
+|   "IF>="     { IFGE }
 |   "if<0"     { IFL0 }
 |   "IF<0"     { IFL0 }
 |   "if>"      { IFG }
